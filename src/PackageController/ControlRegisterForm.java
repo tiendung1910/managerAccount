@@ -63,8 +63,7 @@ public class ControlRegisterForm {
 						new popUpFailRegister();
 					}
 						
-					
-					
+				
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

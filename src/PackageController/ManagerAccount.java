@@ -59,7 +59,7 @@ public class ManagerAccount{
 			}
 			
 			if(checkLogin == true) {
-				new ControllCenter();
+				new MainAppControl();// DOI CHO NI
 				a.dispose();
 				System.out.println(checkLogin);
 			}else { 
