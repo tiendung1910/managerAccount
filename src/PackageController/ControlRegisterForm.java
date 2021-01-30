@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 public class ControlRegisterForm {
 	private ConnectDatabase connect;
 	private RegisterForm rF;
-
+//ahihi
 	public ControlRegisterForm() {
 		try {
 			connect = new ConnectDatabase();
