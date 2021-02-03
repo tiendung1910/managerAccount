@@ -9,7 +9,7 @@ import java.sql.*;
 
 // su li toan bo chuong trinh
 public class ManagerAccount{
-	
+	private static int foreignkey;
 	private ConnectDatabase varConnect;
 	private Statement sttm;
 //	private PreparedStatement preSttm;
@@ -49,6 +49,7 @@ public class ManagerAccount{
 				while(rs.next()) {
 	
 					if(rs.getString("users").equals(user) && rs.getString("passwords").equals(pass)) {
+						foreignkey = rs.getInt("id");
 						checkLogin = true;
 					}
 
@@ -70,6 +71,10 @@ public class ManagerAccount{
 		});
 		//new ControllCenter(); 
 	}
+	public static int getForeignkey() {
+		return foreignkey;
+	}
+	
 	public static void main(String args[]) {
 		try {
 			new ManagerAccount();
@@ -78,4 +83,5 @@ public class ManagerAccount{
 			e.printStackTrace();
 		}
 	}
+	
 }

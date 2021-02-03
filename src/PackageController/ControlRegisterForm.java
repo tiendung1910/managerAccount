@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 public class ControlRegisterForm {
 	private ConnectDatabase connect;
 	private RegisterForm rF;
-//ahihi
+
 	public ControlRegisterForm() {
 		try {
 			connect = new ConnectDatabase();
@@ -59,7 +59,7 @@ public class ControlRegisterForm {
 						ps2.executeUpdate();
 					
 						new popUpRegisterSuccess();
-					}else {
+					}else{
 						new popUpFailRegister();
 					}
 						
@@ -69,10 +69,6 @@ public class ControlRegisterForm {
 					e1.printStackTrace();
 				}
 			
-				
-				
-				
-				
 			});
 			
 		
