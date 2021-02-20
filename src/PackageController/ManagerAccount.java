@@ -47,12 +47,10 @@ public class ManagerAccount{
 				String SQL = "SELECT * FROM tableuserpassword"; 
 				ResultSet rs = sttm.executeQuery(SQL);
 				while(rs.next()) {
-	
 					if(rs.getString("users").equals(user) && rs.getString("passwords").equals(pass)) {
 						foreignkey = rs.getInt("id");
 						checkLogin = true;
 					}
-
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -60,7 +58,7 @@ public class ManagerAccount{
 			}
 			
 			if(checkLogin == true) {
-				new MainAppControl();// DOI CHO NI
+				new MainAppControl();
 				a.dispose();
 				System.out.println(checkLogin);
 			}else { 
@@ -75,13 +73,5 @@ public class ManagerAccount{
 		return foreignkey;
 	}
 	
-	public static void main(String args[]) {
-		try {
-			new ManagerAccount();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 }
