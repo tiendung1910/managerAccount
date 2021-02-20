@@ -1,15 +1,9 @@
 package PackageView;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
+import java.awt.*;
+import java.util.*;
 
 public class MainApp extends JFrame {
 
@@ -18,12 +12,13 @@ public class MainApp extends JFrame {
 	private JTextField YourMoneyTF;
 	private JButton AddMoneyButton;
 	private JButton WithdrawButton;
-	private JButton DiaryButton;
+	private JButton OtherButton;
 	private JButton btnNewButton_1;
 	private JLabel DisplayDataTF;
 	/**
 	 * Launch the application.
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,13 +31,15 @@ public class MainApp extends JFrame {
 			}
 		});
 	}
-
+	*/
 	/**
 	 * Create the frame.
 	 */
 	public MainApp() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 654, 399);
+		//setBounds(100, 100, 654, 399);
+		setSize(654,399);
+		setMinimumSize(new Dimension(654,399));
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -76,9 +73,9 @@ public class MainApp extends JFrame {
 		WithdrawButton.setBounds(172, 270, 137, 23);
 		contentPane.add(WithdrawButton);
 		
-		JButton DiaryButton = new JButton("DIARY");
-		DiaryButton.setBounds(330, 270, 137, 23);
-		contentPane.add(DiaryButton);
+		OtherButton = new JButton("OTHER...");
+		OtherButton.setBounds(330, 270, 137, 23);
+		contentPane.add(OtherButton);
 		
 		btnNewButton_1 = new JButton("New button");
 		btnNewButton_1.setBounds(491, 270, 137, 23);
@@ -100,8 +97,8 @@ public class MainApp extends JFrame {
 	public JButton getWithdrawButton() {
 		return WithdrawButton;
 	}
-	public JButton getDiaryButton() {
-		return DiaryButton;
+	public JButton getOtherButton() {
+		return OtherButton;
 	}
 	public JLabel getDisplayDataTF() {
 		return DisplayDataTF;
