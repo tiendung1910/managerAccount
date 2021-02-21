@@ -16,9 +16,10 @@ public class list_moneys {
 	public list_moneys(ArrayList<String> data) {	
 		f = new JFrame("ahihi");
 		p = new JPanel(new BorderLayout());
-		ArrayList<String> myList = new ArrayList<String>();
+		DefaultListModel<String> myList = new DefaultListModel<String>();
 		for(String d : data) {
-			myList.add(d);
+			myList.addElement(d);
+			
 		}
 		/*
 		try {
@@ -39,7 +40,7 @@ public class list_moneys {
 			e.printStackTrace();
 		}
 		*/
-		list = new JList<String>(myList.toArray(new String[myList.size()]));
+		list = new JList<String>(myList/*.toArray(new String[myList.size()])*/);
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportView(list);
 		list.setLayoutOrientation(JList.VERTICAL);

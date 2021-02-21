@@ -45,8 +45,8 @@ public class controlList_moneys {
 					itemUpdate.addActionListener(a -> {
 						try {
 							Statement sttm2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-//							ResultSet rs2 = sttm2.executeUpdate(null);
-						
+							//ResultSet rs2 = sttm2.executeQuery(null);
+							System.out.println(Oblist.getList().getSelectedValue());
 						
 						} catch (SQLException e1) {
 							// TODO Auto-generated catch block
