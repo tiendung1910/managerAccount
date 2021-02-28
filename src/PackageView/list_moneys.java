@@ -55,5 +55,7 @@ public class list_moneys {
 	public JList<String> getList(){
 		return list;
 	}
-	
+	public JFrame getF() {
+		return f;
+	}
 }

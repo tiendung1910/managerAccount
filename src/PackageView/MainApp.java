@@ -13,7 +13,7 @@ public class MainApp extends JFrame {
 	private JButton AddMoneyButton;
 	private JButton WithdrawButton;
 	private JButton OtherButton;
-	private JButton btnNewButton_1;
+	private JButton chartButton;
 	private JLabel DisplayDataTF;
 	/**
 	 * Launch the application.
@@ -77,9 +77,9 @@ public class MainApp extends JFrame {
 		OtherButton.setBounds(330, 270, 137, 23);
 		contentPane.add(OtherButton);
 		
-		btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(491, 270, 137, 23);
-		contentPane.add(btnNewButton_1);
+		chartButton = new JButton("CHART");
+		chartButton.setBounds(491, 270, 137, 23);
+		contentPane.add(chartButton);
 		
 		DisplayDataTF = new JLabel("");
 		DisplayDataTF.setBounds(10, 217, 618, 30);
@@ -102,5 +102,8 @@ public class MainApp extends JFrame {
 	}
 	public JLabel getDisplayDataTF() {
 		return DisplayDataTF;
+	}
+	public JButton getChartButton() {
+		return chartButton;
 	}
 }

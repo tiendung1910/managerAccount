@@ -105,9 +105,13 @@ public class MainAppControl {
 			}
 			
 		});
-		
+	
 		app.getOtherButton().addActionListener(e -> {
 			new controlList_moneys();
+		});
+		
+		app.getChartButton().addActionListener(e -> {
+			
 		});
 	}
 }
