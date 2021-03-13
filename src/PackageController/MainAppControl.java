@@ -53,49 +53,32 @@ public class MainAppControl {
 			app.getDisplayDataTF().setText(ShowdataInput);
 			try {
 				connectedByMainApp = new ConnectDatabase();
-				
-				PreparedStatement pSttm = connectedByMainApp.getCon().prepareStatement("select Money from tableappmain where AccountOfUser=?",ResultSet.TYPE_SCROLL_SENSITIVE, 
-                ResultSet.CONCUR_UPDATABLE);
-				pSttm.setInt(1, ManagerAccount.getForeignkey());				
-				ResultSet rs = pSttm.executeQuery();
-				
-				int index = 0;
-				while(rs.next()) {
-					index++;
-				}
-				int surplus;
-				if(index!=0) {
-					rs.absolute(index);
-					surplus = rs.getInt(1);
-				}else{
-					surplus = 0;
-				}
-				
+			
 				PreparedStatement PreSttm = connectedByMainApp.getCon().prepareStatement("insert into tableappmain(dates,Money,AccountOfUser) values(?,?,?)",ResultSet.TYPE_SCROLL_SENSITIVE, 
                 ResultSet.CONCUR_UPDATABLE);
 				PreSttm.setString(1, date.toString());
-				PreSttm.setInt(2, YourMoney+surplus);
+				PreSttm.setInt(2, YourMoney);
 				PreSttm.setInt(3, ManagerAccount.getForeignkey());
 				PreSttm.executeUpdate();
+			
 				
-				
+				//add total label
 				ConnectDatabase connn = new ConnectDatabase();
 				String querySql = "select sum(Money) as tota from tableappmain where AccountOfUser = ?";
 				PreparedStatement PreSttmm = connn.getCon().prepareStatement(querySql,ResultSet.TYPE_SCROLL_SENSITIVE, 
 	                    ResultSet.CONCUR_UPDATABLE);
 				PreSttmm.setInt(1, ManagerAccount.getForeignkey());
 				ResultSet rss = PreSttmm.executeQuery();
-				
 				rss.absolute(1);
-				
 				int ahihi = rss.getInt(1);
-				
 				app.getDisplayTotalTF().setText(String.valueOf("Total: "+ahihi));
+				//add total label
+			
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		
+			System.out.println(ManagerAccount.getForeignkey());
 		});
 		
 		app.getWithdrawButton().addActionListener(e -> {
@@ -108,8 +91,7 @@ public class MainAppControl {
 			
 			String ShowdataInput = "Dates :"+stringTimessTF+" ,withdrew moneys :"+stringYourMoneyTF;
 			app.getDisplayDataTF().setText(ShowdataInput);
-//			app.getDisplayTotalTF().setText();
-			
+
 			try {
 				
 				connectedByMainApp = new ConnectDatabase();
@@ -128,14 +110,8 @@ public class MainAppControl {
 		                ResultSet.CONCUR_UPDATABLE);
 				pSttm2.setInt(1,ManagerAccount.getForeignkey());		
 				ResultSet rs2 = pSttm2.executeQuery();
-				/*
-				if(index != 0) {
-					rs2.absolute(index);
-					surplus = rs2.getInt(1);
-				}else{
-					surplus = 0;
-				}
-				*/
+
+				
 				PreparedStatement PreSttm = connectedByMainApp.getCon().prepareStatement("insert into tableappmain(dates,Money,AccountOfUser) values(?,?,?)",ResultSet.TYPE_SCROLL_SENSITIVE, 
                 ResultSet.CONCUR_UPDATABLE);
 				PreSttm.setString(1, date2.toString());

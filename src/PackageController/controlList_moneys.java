@@ -92,6 +92,8 @@ public class controlList_moneys {
 								}
 								count++;
 							}
+							
+							
 							ConnectDatabase connect;
 							try {
 								connect = new ConnectDatabase();
