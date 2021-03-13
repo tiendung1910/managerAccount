@@ -42,7 +42,25 @@ public class controlUpdateForm {
 				controlList_moneys.Oblist.getF().dispose();
 				new controlList_moneys();
 				formUpdate.getFrame().dispose();
-			
+				ConnectDatabase connn;
+				// count total
+				try {
+					connn = new ConnectDatabase();
+					String querySql = "select sum(Money) as tota from tableappmain where AccountOfUser = ?";
+				PreparedStatement PreSttmm = connn.getCon().prepareStatement(querySql,ResultSet.TYPE_SCROLL_SENSITIVE, 
+	                    ResultSet.CONCUR_UPDATABLE);
+				PreSttmm.setInt(1, ManagerAccount.getForeignkey());
+				ResultSet rss = PreSttmm.executeQuery();
+				
+				rss.absolute(1);
+				
+				int ahihi = rss.getInt(1);
+				
+				MainAppControl.getApp().getDisplayTotalTF().setText(String.valueOf("Total: "+ahihi));
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

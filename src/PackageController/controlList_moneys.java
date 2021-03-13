@@ -61,12 +61,18 @@ public class controlList_moneys {
 								}
 								count++;
 							}
+							
+							
+							
 							new controlUpdateForm();
+							
+							
 							
 						} catch (SQLException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
-						}			
+						}	
+						
 					});
 					
 					JMenuItem itemRemove = new JMenuItem("Remove");
@@ -95,6 +101,28 @@ public class controlList_moneys {
 								System.out.println(i+" record removed");
 							
 								controlList_moneys.Oblist.getF().dispose();
+								//add count total
+								
+								ConnectDatabase connn;
+								try {
+									connn = new ConnectDatabase();
+									String querySql = "select sum(Money) as tota from tableappmain where AccountOfUser = ?";
+								PreparedStatement PreSttmm = connn.getCon().prepareStatement(querySql,ResultSet.TYPE_SCROLL_SENSITIVE, 
+					                    ResultSet.CONCUR_UPDATABLE);
+								PreSttmm.setInt(1, ManagerAccount.getForeignkey());
+								ResultSet rss = PreSttmm.executeQuery();
+								
+								rss.absolute(1);
+								
+								int ahihi = rss.getInt(1);
+								
+								MainAppControl.getApp().getDisplayTotalTF().setText(String.valueOf("Total: "+ahihi));
+								} catch (Exception e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								
+								
 								new controlList_moneys();
 							} catch (Exception e1) {
 								// TODO Auto-generated catch block
@@ -106,6 +134,8 @@ public class controlList_moneys {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
+						
+						
 						
 					});
 					menu.add(itemUpdate);

@@ -13,11 +13,32 @@ public class MainAppControl {
 //	String keyF;
 //	int i;
 	
-	
+	private static MainApp app;
 	private ConnectDatabase connectedByMainApp;
 	public MainAppControl() {
-		MainApp app  = new MainApp();
+		app  = new MainApp();
 		app.setVisible(true);
+		try {
+			ConnectDatabase connn = new ConnectDatabase();
+			String querySql = "select sum(Money) as tota from tableappmain where AccountOfUser = ?";
+			PreparedStatement PreSttmm = connn.getCon().prepareStatement(querySql,ResultSet.TYPE_SCROLL_SENSITIVE, 
+                    ResultSet.CONCUR_UPDATABLE);
+			PreSttmm.setInt(1, ManagerAccount.getForeignkey());
+			ResultSet rss = PreSttmm.executeQuery();
+			
+			rss.absolute(1);
+			
+			int ahihi = rss.getInt(1);
+			
+			app.getDisplayTotalTF().setText(String.valueOf("Total: "+ahihi));
+		
+		
+		} catch (Exception e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+		
 		app.getAddMoneyButton().addActionListener(e -> {
 			
 			String stringTimessTF = app.getTimessTF().getText();
@@ -57,6 +78,19 @@ public class MainAppControl {
 				PreSttm.setInt(3, ManagerAccount.getForeignkey());
 				PreSttm.executeUpdate();
 				
+				
+				ConnectDatabase connn = new ConnectDatabase();
+				String querySql = "select sum(Money) as tota from tableappmain where AccountOfUser = ?";
+				PreparedStatement PreSttmm = connn.getCon().prepareStatement(querySql,ResultSet.TYPE_SCROLL_SENSITIVE, 
+	                    ResultSet.CONCUR_UPDATABLE);
+				PreSttmm.setInt(1, ManagerAccount.getForeignkey());
+				ResultSet rss = PreSttmm.executeQuery();
+				
+				rss.absolute(1);
+				
+				int ahihi = rss.getInt(1);
+				
+				app.getDisplayTotalTF().setText(String.valueOf("Total: "+ahihi));
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -74,6 +108,8 @@ public class MainAppControl {
 			
 			String ShowdataInput = "Dates :"+stringTimessTF+" ,withdrew moneys :"+stringYourMoneyTF;
 			app.getDisplayDataTF().setText(ShowdataInput);
+//			app.getDisplayTotalTF().setText();
+			
 			try {
 				
 				connectedByMainApp = new ConnectDatabase();
@@ -106,6 +142,20 @@ public class MainAppControl {
 				PreSttm.setInt(2, -YourMoney);
 				PreSttm.setInt(3, ManagerAccount.getForeignkey());
 				PreSttm.executeUpdate();
+				
+				
+				ConnectDatabase connn = new ConnectDatabase();
+				String querySql = "select sum(Money) as tota from tableappmain where AccountOfUser = ?";
+				PreparedStatement PreSttmm = connn.getCon().prepareStatement(querySql,ResultSet.TYPE_SCROLL_SENSITIVE, 
+	                    ResultSet.CONCUR_UPDATABLE);
+				PreSttmm.setInt(1, ManagerAccount.getForeignkey());
+				ResultSet rss = PreSttmm.executeQuery();
+				
+				rss.absolute(1);
+				
+				int ahihi = rss.getInt(1);
+				
+				app.getDisplayTotalTF().setText(String.valueOf("Total: "+ahihi));
 				
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
@@ -157,4 +207,8 @@ public class MainAppControl {
 				
 		});
 	}
+	public static MainApp getApp() {
+		return app;
+	}
+	
 }

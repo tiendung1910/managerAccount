@@ -15,6 +15,7 @@ public class MainApp extends JFrame {
 	private JButton OtherButton;
 	private JButton chartButton;
 	private JLabel DisplayDataTF;
+	private JLabel DisplayTotalTF;
 	/**
 	 * Launch the application.
 	 */
@@ -84,6 +85,10 @@ public class MainApp extends JFrame {
 		DisplayDataTF = new JLabel("");
 		DisplayDataTF.setBounds(10, 217, 618, 30);
 		contentPane.add(DisplayDataTF);
+		
+		DisplayTotalTF = new JLabel("");
+		DisplayTotalTF.setBounds(10,235,618,30);
+		contentPane.add(DisplayTotalTF);
 	}
 	public JTextField getTimessTF() {
 		return TimessTF;
@@ -105,5 +110,8 @@ public class MainApp extends JFrame {
 	}
 	public JButton getChartButton() {
 		return chartButton;
+	}
+	public JLabel getDisplayTotalTF() {
+		return DisplayTotalTF;
 	}
 }
