@@ -105,12 +105,6 @@ public class MainAppControl {
 				while(rs.next()) {
 					index++;
 				}
-				int surplus;
-				PreparedStatement pSttm2 = connectedByMainApp.getCon().prepareStatement("select Money from tableappmain where AccountOfUser=?",ResultSet.TYPE_SCROLL_SENSITIVE, 
-		                ResultSet.CONCUR_UPDATABLE);
-				pSttm2.setInt(1,ManagerAccount.getForeignkey());		
-				ResultSet rs2 = pSttm2.executeQuery();
-
 				
 				PreparedStatement PreSttm = connectedByMainApp.getCon().prepareStatement("insert into tableappmain(dates,Money,AccountOfUser) values(?,?,?)",ResultSet.TYPE_SCROLL_SENSITIVE, 
                 ResultSet.CONCUR_UPDATABLE);

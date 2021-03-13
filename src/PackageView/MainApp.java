@@ -74,7 +74,7 @@ public class MainApp extends JFrame {
 		WithdrawButton.setBounds(172, 270, 137, 23);
 		contentPane.add(WithdrawButton);
 		
-		OtherButton = new JButton("OTHER...");
+		OtherButton = new JButton("HISTORY");
 		OtherButton.setBounds(330, 270, 137, 23);
 		contentPane.add(OtherButton);
 		

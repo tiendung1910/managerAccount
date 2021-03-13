@@ -11,7 +11,7 @@ public class Mainv {
 			e.printStackTrace();
 		}
 
-		System.out.println("ahihi");
+		
 		
 		
 	}
