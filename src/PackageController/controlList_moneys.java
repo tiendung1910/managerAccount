@@ -33,7 +33,7 @@ public class controlList_moneys {
 			while(rs.next()) {
 				if(rs.getInt(3)<0) {
 					dataJList.add(rs.getString(2)+", withdraw:"+-rs.getInt(3));
-					
+			
 				}else{
 					dataJList.add(rs.getString(2)+", added:"+rs.getInt(3));
 				}

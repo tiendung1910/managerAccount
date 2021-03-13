@@ -1,10 +1,18 @@
 package PackageController;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 
 import PackageModel.*;
 import PackageView.*;
 
 public class MainAppControl {
+//	String keyF;
+//	int i;
+	
 	
 	private ConnectDatabase connectedByMainApp;
 	public MainAppControl() {
@@ -111,7 +119,42 @@ public class MainAppControl {
 		});
 		
 		app.getChartButton().addActionListener(e -> {
-			
+				new FileData();
+				
+//				FileReader fr2;
+//				
+//				try {
+//					fr2 = new FileReader("C:\\Users\\Administrator\\eclipse-workspace\\projectCharMoneys\\data.txt");
+//					BufferedReader br2 = new BufferedReader(fr2);
+//					ArrayList<Character> a = new ArrayList<Character>();
+//					
+//					try {
+//						while((i=br2.read())!=-1) {
+//							a.add((char)i);
+//						}
+//					} catch (IOException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					}
+//					if(a.size()==1) {
+//						
+//						keyF =String.valueOf(a.get(0)) ;
+//					
+//					}else {
+//						keyF = "";
+//						for(char i : a) {
+//							keyF +=i; 
+//						}
+//						
+//					}
+//					
+//					System.out.println(keyF);
+//				
+//				} catch (FileNotFoundException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
+				
 		});
 	}
 }
